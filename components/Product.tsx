@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { useDispatch } from 'react-redux'
 import { cartActions } from '../store/cartSlice';
-import { CartDispatch } from "../store/store";
 interface ProductProps {
   productId: string;
   img: string;
@@ -12,7 +11,7 @@ interface ProductProps {
 
 const Product = ({productId, img, price, title, description}:ProductProps) => {
   const itemPrice = "$" + price.toString()
-  const dispatch = useDispatch<CartDispatch>();
+  const dispatch = useDispatch();
   const addToCartHandler = () => {
     const toDispatch = {productId, img, price, title, description, quantity: 1}
     dispatch(cartActions.addToCart(toDispatch));
