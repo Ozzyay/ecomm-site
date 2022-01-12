@@ -13,8 +13,9 @@ const Products: NextPage = () => {
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     </Head>
     {loading && <Loading/>}
-    {!loading && error && <p className="text-red-500 flex items-center justify-center mt-[15vh]">An error has occured...Please try again.</p>}
     {data && <AllProducts products={data}/>}
+    {!loading && !data && error && <p className="text-red-500 flex items-center justify-center mt-[15vh]">An error has occured...Please try again.</p>}
+
   </Template>
 };
 
